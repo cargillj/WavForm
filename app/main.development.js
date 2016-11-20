@@ -1,5 +1,7 @@
 import { app, ipcMain, BrowserWindow, Menu, shell } from 'electron';
 import { configureStore } from './store/configureStore';
+import pify from 'pify';
+import jsonStorage from 'electron-json-storage';
 
 let menu;
 let template;
@@ -39,6 +41,16 @@ const installExtensions = async () => {
     }
   }
 };
+
+const storage = pify(jsonStorage);
+
+async function start() {
+  const store = configureStore(global.state, "main");
+  
+  store.subscribe(async () => {
+    await storage.set("state", store.getState()); 
+  });
+}
 
 app.on('ready', async () => {
   await installExtensions();
