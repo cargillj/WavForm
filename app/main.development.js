@@ -1,5 +1,5 @@
 import { app, ipcMain, BrowserWindow, Menu, shell } from 'electron';
-import { configureStore } from './store/configureStore';
+import { configureStore } from './shared/store/configureStore';
 import pify from 'pify';
 import jsonStorage from 'electron-json-storage';
 
