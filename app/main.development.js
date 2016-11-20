@@ -1,4 +1,5 @@
-import { app, BrowserWindow, Menu, shell } from 'electron';
+import { app, ipcMain, BrowserWindow, Menu, shell } from 'electron';
+import { configureStore } from './store/configureStore';
 
 let menu;
 let template;
@@ -41,6 +42,7 @@ const installExtensions = async () => {
 
 app.on('ready', async () => {
   await installExtensions();
+
 
   mainWindow = new BrowserWindow({
     show: false,

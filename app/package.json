@@ -11,5 +11,6 @@
   },
   "license": "MIT",
   "dependencies": {
+    "electron-redux": "^1.2.2"
   }
 }
