@@ -3,6 +3,7 @@ import { app, BrowserWindow, Menu, shell } from 'electron';
 let menu;
 let template;
 let mainWindow = null;
+let moduleSelectWindow = null;
 
 if (process.env.NODE_ENV === 'production') {
   const sourceMapSupport = require('source-map-support'); // eslint-disable-line
@@ -56,6 +57,23 @@ app.on('ready', async () => {
 
   mainWindow.on('closed', () => {
     mainWindow = null;
+  });
+
+  moduleSelectWindow = new BrowserWindow({
+    show: true,
+    width: 200,
+    height: 500
+  });
+
+  moduleSelectWindow.loadURL(`file://${__dirname}/moduleSelect.html`);
+
+  moduleSelectWindow.on('did-finish-load', () => {
+    moduleSelectWindow.show();
+  });
+
+
+  moduleSelectWindow.on('closed', () => {
+    moduleSelectWindow = null;
   });
 
   if (process.env.NODE_ENV === 'development') {
@@ -270,5 +288,6 @@ app.on('ready', async () => {
     }];
     menu = Menu.buildFromTemplate(template);
     mainWindow.setMenu(menu);
+    moduleSelectWindow.setMenu(menu);
   }
 });

@@ -3,13 +3,12 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import styles from './Home.css';
 
-
-export default class Home extends Component {
+export default class ModuleSelect extends Component {
   render() {
     return (
       <div>
         <div className={styles.container}>
-          <h1>Welcome to WavForm</h1>
+          <h2>This is the module select container</h2>
         </div>
       </div>
     );
