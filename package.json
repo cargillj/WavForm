@@ -150,6 +150,7 @@
   },
   "dependencies": {
     "electron-debug": "^1.0.1",
+    "electron-redux": "^1.2.2",
     "font-awesome": "^4.7.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
