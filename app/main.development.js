@@ -62,7 +62,7 @@ app.on('ready', async () => {
     height: 728
   });
 
-  mainWindow.loadURL(`file://${__dirname}/app.html`);
+  mainWindow.loadURL(`file://${__dirname}/main/app.html`);
 
   mainWindow.webContents.on('did-finish-load', () => {
     mainWindow.show();
@@ -79,7 +79,7 @@ app.on('ready', async () => {
     height: 500
   });
 
-  moduleSelectWindow.loadURL(`file://${__dirname}/moduleSelect.html`);
+  moduleSelectWindow.loadURL(`file://${__dirname}/moduleSelect/moduleSelect.html`);
 
   moduleSelectWindow.on('did-finish-load', () => {
     moduleSelectWindow.show();
@@ -92,6 +92,7 @@ app.on('ready', async () => {
 
   if (process.env.NODE_ENV === 'development') {
     mainWindow.openDevTools();
+    moduleSelectWindow.openDevTools();
     mainWindow.webContents.on('context-menu', (e, props) => {
       const { x, y } = props;
 
@@ -302,6 +303,5 @@ app.on('ready', async () => {
     }];
     menu = Menu.buildFromTemplate(template);
     mainWindow.setMenu(menu);
-    moduleSelectWindow.setMenu(menu);
   }
 });
