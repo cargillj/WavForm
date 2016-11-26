@@ -2,14 +2,20 @@ import React, { Component, PropTypes } from 'react';
 import styles from './styles.css';
 import ReactAudioPlayer from 'react-audio-player';
 
+
 class Home extends Component {
+
   componentDidMount() {
     this.rap.audioEl.volume = this.props.settings.volume
+    this.rap.audioEl.addEventListener("volumechange",() => {
+      this.props.setVolume(this.rap.audioEl.volume)
+    });
   }
 
   componentDidUpdate() {
     this.rap.audioEl.volume = this.props.settings.volume
   }
+
 
   render() {
     return (
@@ -27,6 +33,7 @@ class Home extends Component {
 }
 
 Home.propTypes = {
+  setVolume: PropTypes.func.isRequired,
   settings: PropTypes.object.isRequired
 }
 
