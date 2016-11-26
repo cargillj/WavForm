@@ -62,7 +62,7 @@ app.on('ready', async () => {
     height: 728
   });
 
-  mainWindow.loadURL(`file://${__dirname}/main/app.html`);
+  mainWindow.loadURL(`file://${__dirname}/renderer/main/app.html`);
 
   mainWindow.webContents.on('did-finish-load', () => {
     mainWindow.show();
@@ -79,7 +79,7 @@ app.on('ready', async () => {
     height: 500
   });
 
-  moduleSelectWindow.loadURL(`file://${__dirname}/moduleSelect/moduleSelect.html`);
+  moduleSelectWindow.loadURL(`file://${__dirname}/renderer/moduleSelect/moduleSelect.html`);
 
   moduleSelectWindow.on('did-finish-load', () => {
     moduleSelectWindow.show();

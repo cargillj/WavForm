@@ -20,11 +20,11 @@ export default validate(merge(baseConfig, {
   entry: {
     app: [`webpack-hot-middleware/client?path=http://localhost:${port}/__webpack_hmr`,
     'babel-polyfill',
-    './app/main/index'
+    './app/renderer/main/index'
     ],
     moduleSelect: [`webpack-hot-middleware/client?path=http://localhost:${port}/__webpack_hmr`,
     'babel-polyfill',
-    './app/moduleSelect/moduleSelect'
+    './app/renderer/moduleSelect/moduleSelect'
     ]
   },
 

@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import { hashHistory } from 'react-router';
 import { routerMiddleware, push } from 'react-router-redux';
 import createLogger from 'redux-logger';
-import rootReducer from '../reducers';
+import getRootReducer from '../reducers';
 import {
   forwardToMain,
   forwardToRenderer,
@@ -57,6 +57,8 @@ export default function configureStore(initialState, scope = 'main') {
   const enhancer = composeEnhancers(
     applyMiddleware(...middleware)
   );
+
+  const rootReducer = getRootReducer(scope);
 
   const store = createStore(rootReducer, initialState, enhancer);
 
