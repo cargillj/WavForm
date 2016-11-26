@@ -1,16 +1,15 @@
 // @flow
-import React, { Component, PropTypes } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import App from '../components/App';
+import * as SettingsActions from '../../../shared/actions/settings';
 
-export default class App extends Component {
-  static propTypes = {
-    children: PropTypes.element.isRequired
-  };
-
-  render() {
-    return (
-      <div>
-        {this.props.children}
-      </div>
-    );
-  }
+function mapStateToProps({ settings }) {
+  return { settings };
 }
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(SettingsActions, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
