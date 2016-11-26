@@ -1,5 +1,5 @@
-import { app, ipcMain, BrowserWindow, Menu, shell } from 'electron';
-import { configureStore } from './shared/store/configureStore';
+import { app, ipcMain, BrowserWindow, Menu, shell, dialog } from 'electron';
+import configureStore from './shared/store/configureStore';
 import pify from 'pify';
 import jsonStorage from 'electron-json-storage';
 
@@ -53,6 +53,9 @@ async function start() {
 }
 
 app.on('ready', async () => {
+  start().catch((err) => {
+    dialog.showErrorBox("There has been an error", err.message);
+  });
   await installExtensions();
 
 

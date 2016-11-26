@@ -3,7 +3,7 @@ import {
 } from '../actions/settings';
 
 const initialState = {
-  volume: 50
+  volume: 0.5
 }
 
 export default function settings(state = initialState, action) {
