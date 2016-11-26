@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import { remote } from 'electron';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, hashHistory } from 'react-router';

@@ -1,0 +1,10 @@
+.volumeContainer {
+  height: 20vh;
+}
+
+.slider {
+  height: 5vh;
+  width: 100%;
+  background-color: grey;
+}
+
